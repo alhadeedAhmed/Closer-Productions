@@ -1,6 +1,6 @@
 export default function Platforms() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-6 text-center">
+    <section className="max-w-4xl mx-auto px-4 py-6 text-center mt-[-15px]">
       <h2 className="font-semibold text-base mb-2">
         <span className="font-bold">Platforms:</span>{" "}
         <span className="font-normal text-gray-700">

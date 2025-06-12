@@ -1,6 +1,6 @@
 const ShowCard = ({ show }) => {
   return (
-    <div className="mb-8 pb-6">
+    <div className="mb-2 pb-6">
       {/* Show Title */}
       <h3 className="text-xl font-normal mb-3">
         <a href={show.titleLink || "#"} className="text-blue-500 underline">
@@ -660,11 +660,703 @@ export default function ShowsListing() {
         { text: ")." },
       ],
     },
+    {
+      title: "The Unicorn (CBS 2019–2021)",
+      network: "CBS",
+      year: "2019–2021",
+      titleLink: "#",
+      platforms: "CBS, Paramount+",
+      description:
+        "Heartfelt comedy in which widower Wade (Walton Goggins) discovers he’s dating “unicorn” — an unexpected catch.",
+      evidence: [
+        {
+          text: "Holds a 91 % critics score on Rotten Tomatoes (",
+        },
+        {
+          text: "",
+          link: { text: "Rotten Tomatoes", url: "#" },
+        },
+        {
+          text: "); Goggins nominated for Critics' Choice TV Award for Best Actor in a Comedy Series 2020 (",
+        },
+        {
+          text: "",
+          link: { text: "Critics Choice", url: "#" },
+        },
+        {
+          text: "); CBS granted full‑season order after strong early ratings (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Fam (CBS 2019)",
+      network: "CBS",
+      year: "2019",
+      titleLink: "#",
+      platforms: "CBS, Paramount+",
+      description:
+        "A newly engaged woman (Nina Dobrev) and her fiancé take in her wild teenage sister, instantly testing — and redefining — the idea of family.",
+      evidence: [
+        {
+          text: "Series premiere drew 7.34 million viewers and a 1.2 demo, giving CBS a strong mid‑season comedy launch (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); retained most of its “Big Bang Theory” lead‑in during premiere week (",
+        },
+        {
+          text: "",
+          link: { text: "TVLine", url: "#" },
+        },
+        {
+          text: "); praised by Variety for Dobrev’s “surprisingly deft” comedic turn (",
+        },
+        {
+          text: "",
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "A Million Little Things",
+      network: "ABC",
+      year: "2018–2023",
+      titleLink: "#",
+      platforms: "ABC, Hulu",
+      description:
+        "A close‑knit Boston friend group reevaluates life after a shocking tragedy, discovering that friendship really is a million little things.",
+      evidence: [
+        {
+          text: "Won a Television Academy Honor in 2019 for tackling real‑world mental‑health issues (",
+        },
+        {
+          text: "",
+          link: { text: "Television Academy", url: "#" },
+        },
+        {
+          text: "); received a 2022 Sentinel Award for thoughtful portrayal of women’s health (",
+        },
+        {
+          text: "",
+          link: { text: "HHA&S", url: "#" },
+        },
+        {
+          text: "); ran five successful seasons, reaching 87 episodes and a devoted fan base (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Tell Me a Story",
+      network: "CBS All Access",
+      year: "2018–2020",
+      titleLink: "#",
+      platforms: "CBS All Access, The CW",
+      description:
+        "Dark anthology that reimagines classic fairy tales — Little Red Riding Hood, Three Little Pigs, Sleeping Beauty — as contemporary psychological thrillers.",
+      evidence: [
+        {
+          text: "Renewed for Season 2 four weeks after launch (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); The CW acquired off‑network rights in 2020, expanding the audience beyond streaming (",
+        },
+        {
+          text: "",
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: "); Rotten Tomatoes critics called it “slick, stylish pulp” with 70 % positive reviews for S1 (",
+        },
+        {
+          text: "",
+          link: { text: "Rotten Tomatoes", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "9JKL",
+      network: "CBS",
+      year: "2017–2018",
+      titleLink: "#",
+      platforms: "CBS, Paramount+",
+      description:
+        "Newly divorced actor Josh Roberts moves into apartment 9K — sandwiched between his meddling parents in 9J and competitive brother in 9L — learning boundaries the hard way.",
+      evidence: [
+        {
+          text: "Premiered to 8.2 million viewers and a 1.6 demo out of “Big Bang Theory,” giving CBS its best Monday 9:30 launch since 2014 (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); full 16‑episode order secured after solid retention (",
+        },
+        {
+          text: "",
+          link: { text: "RenewCancelTV", url: "#" },
+        },
+        {
+          text: "); TV Guide highlighted veteran scene‑stealers Elliott Gould & Linda Lavin as “worth tuning in for” (",
+        },
+        {
+          text: "",
+          link: { text: "TV Guide", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Me, Myself & I",
+      network: "CBS",
+      year: "2017",
+      titleLink: "#",
+      platforms: "CBS",
+      description:
+        "Sitcom spanning three stages of one man’s life: 14, 40, and 85.",
+      evidence: [
+        {
+          text: "EW praised its inventive storytelling and non‑linear format (",
+        },
+        {
+          text: "",
+          link: { text: "EW", url: "#" },
+        },
+        {
+          text: "); Premiere held ~5 million viewers (~1.0 demo) (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); Pilot earned a Writers Guild nomination (",
+        },
+        {
+          text: "",
+          link: { text: "WGA Archive", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Santa Clarita Diet",
+      network: "Netflix",
+      year: "2017–2019",
+      titleLink: "#",
+      platforms: "Netflix",
+      description:
+        "Dark comedy following a suburban couple coping with the wife’s zombie transformation.",
+      evidence: [
+        {
+          text: "Drew Barrymore called it a career highlight (",
+        },
+        {
+          text: "",
+          link: { text: "EW", url: "#" },
+        },
+        {
+          text: "); TV Guide praised its horror‑comedy blend (",
+        },
+        {
+          text: "",
+          link: { text: "TV Guide", url: "#" },
+        },
+        {
+          text: "); it was in Netflix’s Top 10 across multiple countries upon release (",
+        },
+        {
+          text: "",
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Divorce",
+      network: "HBO",
+      year: "2016–2019",
+      titleLink: "#",
+      platforms: "HBO, Max",
+      description:
+        "Dark comedy charting the long breakup of Frances and Robert after she suddenly asks for a divorce — starring Sarah Jessica Parker and Thomas Haden Church.",
+      evidence: [
+        {
+          text: "Parker earned a Golden Globe nomination for Best Actress (TV Comedy) in 2017 (",
+        },
+        {
+          text: "",
+          link: { text: "Golden Globes", url: "#" },
+        },
+        {
+          text: "); series praised by Vulture for “sharply observed midlife satire” (",
+        },
+        {
+          text: "",
+          link: { text: "Vulture", url: "#" },
+        },
+        {
+          text: "); ran three seasons, concluding on creator Sharon Horgan’s terms in 2019 (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "American Housewife",
+      network: "ABC",
+      year: "2016–2021",
+      titleLink: "#",
+      platforms: "ABC, Hulu",
+      description:
+        "Outspoken mom Katie Otto (Katy Mixon) raises her perfectly imperfect family in wealthy Westport, CT — proving you don’t have to be perfect to fit in.",
+      evidence: [
+        {
+          text: "Nominated for 2017 People’s Choice Award for Favorite New TV Comedy (",
+        },
+        {
+          text: "",
+          link: { text: "People", url: "#" },
+        },
+        {
+          text: "); ran five seasons (103 episodes) on ABC, consistently anchoring Wednesday comedy block (",
+        },
+        {
+          text: "",
+          link: { text: "THR", url: "#" },
+        },
+        {
+          text: "); Mixon lauded by Variety for her “brassy comic charisma” (",
+        },
+        {
+          text: "",
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Secrets & Lies",
+      network: "ABC",
+      year: "2015–2016",
+      titleLink: "#",
+      platforms: "ABC, Hulu",
+      description:
+        "Anthology crime drama where each season investigates a murder that exposes hidden secrets within a seemingly normal family.",
+      evidence: [
+        {
+          text: "Two-hour premiere drew 8.9 million viewers and a 3.0 demo, ABC’s best Sunday launch since 2012 (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); renewed for Season 2 on stable 1.5 average demo (",
+        },
+        {
+          text: "",
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: "); Hollywood Reporter called it a “gripping whodunnit” anchored by solid performances (",
+        },
+        {
+          text: "",
+          link: { text: "THR", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Life in Pieces",
+      network: "CBS",
+      year: "2015–2019",
+      titleLink: "#",
+      platforms: "CBS, Paramount+",
+      description:
+        "Family sitcom told in four bite-size stories each episode, chronicling hilarious milestones of the sprawling Short family.",
+      evidence: [
+        {
+          text: "2015–16 television season’s most-watched new comedy (9.2 million Live+7 average) (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); earned Critics’ Choice nomination for Best Comedy Series 2016 (",
+        },
+        {
+          text: "",
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: "); ran four seasons (79 episodes) with consistently high DVR lifts (",
+        },
+        {
+          text: "",
+          link: { text: "THR", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Kevin from Work",
+      network: "Freeform",
+      year: "2015",
+      titleLink: "#",
+      platforms: "Freeform (ABC Family)",
+      description:
+        "Workplace rom-com about Kevin, who confesses love to a coworker right before losing the job offer that would have taken him far away — forcing awkward day-to-day encounters.",
+      evidence: [
+        {
+          text: "Holds a 76 % audience score on Rotten Tomatoes (",
+        },
+        {
+          text: "",
+          link: { text: "Rotten Tomatoes", url: "#" },
+        },
+        {
+          text: "); Entertainment Weekly praised its “zippy, amiable charm” (",
+        },
+        {
+          text: "",
+          link: { text: "EW", url: "#" },
+        },
+        {
+          text: "); Fans even launched an online petition to renew the show after its lone season.",
+        },
+      ],
+    },
+    {
+      title: "The Mysteries of Laura",
+      network: "NBC",
+      year: "2014–2016",
+      titleLink: "#",
+      platforms: "NBC",
+      description:
+        "Detective Laura Diamond balances homicide cases with parenting her twin boys.",
+      evidence: [
+        {
+          text: "Premiere attracted over 10 million viewers—NBC’s best fall launch in over a year (",
+        },
+        {
+          text: "",
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); Entertainment Weekly praised the blend of crime and comedy (",
+        },
+        {
+          text: "",
+          link: { text: "EW", url: "#" },
+        },
+        {
+          text: "); Format inspired remakes in Italy and Spain (",
+        },
+        {
+          text: "",
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Chasing Life",
+      network: "ABC Family",
+      year: "2014–2015",
+      titleLink: "#",
+      platforms: "ABC Family, Hulu",
+      description:
+        "A journalist pursues career, relationships, and survival after a leukemia diagnosis.",
+      evidence: [
+        {
+          text: "Hollywood Reporter called its illness portrayal “empathetic, authentic” (",
+        },
+        {
+          link: { text: "HR", url: "#" },
+        },
+        {
+          text: "). Cancer advocacy groups praised its treatment of disease (",
+        },
+        {
+          link: { text: "American Cancer Society", url: "#" },
+        },
+        {
+          text: "). Its audience grew from 1.2 million to about 1.6 million by season’s end (",
+        },
+        {
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Friends With Better Lives",
+      network: "CBS",
+      year: "2014",
+      titleLink: "#",
+      platforms: "CBS",
+      description:
+        "Ensemble comedy of friends convinced the others have the better life.",
+      evidence: [
+        {
+          text: "Premiere drew 8.1 million viewers—strong mid-season numbers (",
+        },
+        {
+          link: { text: "HR", url: "#" },
+        },
+        {
+          text: "). Developed by 'Friends' veteran Scott Silveri (",
+        },
+        {
+          link: { text: "Variety", url: "#" },
+        },
+        {
+          text: "); LA Times praised its “sharp comedic timing” (",
+        },
+        {
+          link: { text: "LA Times", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Instant Mom",
+      network: "Nick at Nite",
+      year: "2013–2015",
+      titleLink: "#",
+      platforms: "Nick at Nite, Paramount+",
+      description:
+        "Party girl Steph (Tia Mowry-Hardrict) suddenly becomes step-mom to three kids and learns parenting on the fly.",
+      evidence: [
+        {
+          text: "Ran 65 episodes over three seasons — Nick at Nite’s longest-running original sitcom (",
+        },
+        {
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); NAACP Image Award nomination for Outstanding Actress (Tia Mowry) 2014 (",
+        },
+        {
+          link: { text: "NAACP", url: "#" },
+        },
+        {
+          text: "); Nick at Nite reported 1.3 million total viewers for the series launch.",
+        },
+      ],
+    },
+    {
+      title: "Back in the Game",
+      network: "ABC",
+      year: "2013–2014",
+      titleLink: "#",
+      platforms: "ABC",
+      description:
+        "A divorced mom moves in with her father and starts coaching her son’s baseball team.",
+      evidence: [
+        {
+          text: "Entertainment Weekly praised its “genuine warmth and textured humor” (",
+        },
+        {
+          link: { text: "EW", url: "#" },
+        },
+        {
+          text: "). Hollywood Reporter highlighted the strong ensemble, especially James Caan and Maggie Lawson (",
+        },
+        {
+          link: { text: "HR", url: "#" },
+        },
+        {
+          text: "). Common Sense Media gave it high marks for family appeal (",
+        },
+        {
+          link: { text: "CSM", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Wendell & Vinnie",
+      network: "Nickelodeon",
+      year: "2013",
+      titleLink: "#",
+      platforms: "Nickelodeon (Nick at Nite)",
+      description:
+        "Loveable slacker Vinnie (Jerry Trainor) becomes guardian to his precocious 12-year-old nephew, leading to chaotic life lessons.",
+      evidence: [
+        {
+          text: "Debuted to 2.4 million viewers, according to industry site TV Series Finale; held 2.38 million in week 2, reflecting strong word-of-mouth (",
+        },
+        {
+          link: { text: "TV by the Numbers", url: "#" },
+        },
+        {
+          text: "); praised by Common Sense Media for “positive family messages” (",
+        },
+        {
+          link: { text: "Common Sense Media", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "GCB",
+      network: "ABC",
+      year: "2012",
+      titleLink: "#",
+      platforms: "ABC",
+      description:
+        "Dallas dramedy about a widow confronting her high-school “mean girls.”",
+      evidence: [
+        {
+          text: "Kristin Chenoweth was called a “scene-stealer” in reviews (",
+        },
+        {
+          link: { text: "Vulture", url: "#" },
+        },
+        {
+          text: "). The premiere drew 7.5 million viewers—a solid mid-season debut (",
+        },
+        {
+          link: { text: "Hollywood Reporter", url: "#" },
+        },
+        {
+          text: "). ABC ordered a full 10-episode season based on social buzz and early momentum (",
+        },
+        {
+          link: { text: "TVLine", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Inbetweeners",
+      network: "MTV",
+      year: "2012",
+      titleLink: "#",
+      platforms: "MTV",
+      description:
+        "American spin on the UK hit, following four awkward teens navigating high school chaos.",
+      evidence: [
+        {
+          text: "Critics praised its faithful adaptation and fresh cultural tweaks (",
+        },
+        {
+          link: { text: "Hollywood Reporter", url: "#" },
+        },
+        {
+          text: "). Its pilot attracted ~2 million viewers—strong for MTV (",
+        },
+        {
+          link: { text: "Wikipedia", url: "#" },
+        },
+        {
+          text: "). Despite its single season, it gained a cult following in teen-comedy retrospectives (",
+        },
+        {
+          link: { text: "Vulture", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
+    {
+      title: "Terra Nova",
+      network: "Fox",
+      year: "2011",
+      titleLink: "#",
+      platforms: "Fox, Hulu",
+      description:
+        "Ambitious sci-fi adventure in which colonists from a dying 2149 Earth travel 85 million years into the past to rebuild civilization among dinosaurs.",
+      evidence: [
+        {
+          text: "Two-hour series premiere drew 9.0 million viewers and a 3.0 demo, winning its slot for Fox (",
+        },
+        {
+          link: { text: "Deadline", url: "#" },
+        },
+        {
+          text: "); nominated for the 2012 Saturn Award for Best Network Television Series (",
+        },
+        {
+          link: { text: "Wikipedia", url: "#" },
+        },
+        {
+          text: "); Visual Effects Society honored its pilot with a nomination for Outstanding VFX in a Broadcast Program (",
+        },
+        {
+          link: { text: "Wikipedia", url: "#" },
+        },
+        {
+          text: ").",
+        },
+      ],
+    },
   ];
 
   return (
     <section className="w-full px-4 sm:px-6 lg:max-w-5xl lg:mx-auto my-8">
-      <div className="bg-white">
+      <div className="bg-transparent">
         {showsData.map((show, index) => (
           <ShowCard key={index} show={show} />
         ))}

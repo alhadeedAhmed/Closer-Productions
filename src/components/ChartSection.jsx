@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Chart,
   LineController,
@@ -28,6 +28,7 @@ Chart.register(
 export default function ChartSection() {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
+  const [hiddenDatasets, setHiddenDatasets] = useState(new Set());
 
   const data = {
     labels: [
@@ -59,6 +60,7 @@ export default function ChartSection() {
         pointBorderColor: "#3B82F6",
         pointRadius: 4,
         pointHoverRadius: 6,
+        hidden: hiddenDatasets.has(0),
       },
       {
         label: "Cumulative platforms",
@@ -72,19 +74,21 @@ export default function ChartSection() {
         pointBorderColor: "#10B981",
         pointRadius: 4,
         pointHoverRadius: 6,
+        hidden: hiddenDatasets.has(1),
       },
       {
         label: "Movies",
-        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2],
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
         borderColor: "#EF4444",
         backgroundColor: "transparent",
         fill: false,
         tension: 0.4,
-        borderDash: [2, 2],
+        borderDash: [2, 6],
         pointBackgroundColor: "#EF4444",
         pointBorderColor: "#EF4444",
         pointRadius: 4,
         pointHoverRadius: 6,
+        hidden: hiddenDatasets.has(2),
       },
     ],
   };
@@ -94,28 +98,7 @@ export default function ChartSection() {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
-        position: "top",
-        align: "center",
-        labels: {
-          usePointStyle: true,
-          pointStyle: "line",
-          font: {
-            size: 12,
-          },
-          color: "#6B7280",
-          generateLabels: function (chart) {
-            const datasets = chart.data.datasets;
-            return datasets.map((dataset) => ({
-              text: dataset.label,
-              fillStyle: dataset.borderColor,
-              strokeStyle: dataset.borderColor,
-              lineWidth: dataset.borderDash ? 2 : 3,
-              lineDash: dataset.borderDash || [],
-              pointStyle: dataset.borderDash ? "circle" : "line",
-            }));
-          },
-        },
+        display: false, // We'll create custom legend
       },
       tooltip: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
@@ -125,6 +108,10 @@ export default function ChartSection() {
         borderWidth: 1,
         cornerRadius: 6,
         displayColors: false,
+        filter: function (tooltipItem) {
+          // Only show tooltip for the hovered dataset
+          return true;
+        },
         callbacks: {
           title: (context) => context[0].label,
           label: (context) => `${context.dataset.label}: ${context.parsed.y}`,
@@ -143,8 +130,70 @@ export default function ChartSection() {
         ticks: { stepSize: 5, color: "#6B7280", font: { size: 11 } },
       },
     },
-    interaction: { intersect: false, mode: "index" },
+    interaction: {
+      intersect: true, // Only show tooltip when hovering directly on points
+      mode: "point", // Only show tooltip for the specific point being hovered
+    },
     elements: { point: { hoverBorderWidth: 3 } },
+  };
+
+  const toggleDataset = (index) => {
+    const newHiddenDatasets = new Set(hiddenDatasets);
+    if (newHiddenDatasets.has(index)) {
+      newHiddenDatasets.delete(index);
+    } else {
+      newHiddenDatasets.add(index);
+    }
+    setHiddenDatasets(newHiddenDatasets);
+  };
+
+  const getLegendIcon = (dataset, index) => {
+    const isHidden = hiddenDatasets.has(index);
+    const baseStyle = {
+      width: "35px",
+      height: "13px",
+      display: "inline-block",
+      marginRight: "8px",
+      opacity: isHidden ? 0.3 : 1,
+    };
+
+    if (index === 0) {
+      // Total shows to date - filled rectangle with light blue fill and dark blue border
+      return (
+        <span
+          style={{
+            ...baseStyle,
+            backgroundColor: "rgba(59, 130, 246, 0.3)",
+            border: `2px solid ${dataset.borderColor}`,
+            boxSizing: "border-box",
+          }}
+        />
+      );
+    } else if (index === 1) {
+      // Cumulative platforms - dashed rectangle
+      return (
+        <span
+          style={{
+            ...baseStyle,
+            backgroundColor: "rgba(16, 185, 129, 0.3)",
+            border: `2px dashed ${dataset.borderColor}`,
+            boxSizing: "border-box",
+          }}
+        />
+      );
+    } else {
+      // Movies - dotted rectangle
+      return (
+        <span
+          style={{
+            ...baseStyle,
+            backgroundColor: "rgba(239, 68, 68, 0.3)",
+            border: `2px dotted ${dataset.borderColor}`,
+            boxSizing: "border-box",
+          }}
+        />
+      );
+    }
   };
 
   useEffect(() => {
@@ -153,9 +202,18 @@ export default function ChartSection() {
         chartInstance.current.destroy();
       }
 
+      // Update dataset visibility based on state
+      const updatedData = {
+        ...data,
+        datasets: data.datasets.map((dataset, index) => ({
+          ...dataset,
+          hidden: hiddenDatasets.has(index),
+        })),
+      };
+
       chartInstance.current = new Chart(chartRef.current, {
         type: "line",
-        data,
+        data: updatedData,
         options,
       });
     }
@@ -165,11 +223,32 @@ export default function ChartSection() {
         chartInstance.current.destroy();
       }
     };
-  }, []);
+  }, [hiddenDatasets]);
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:max-w-5xl lg:mx-auto my-8">
+    <section className="w-full px-4 sm:px-6 lg:max-w-5xl lg:mx-auto my-8 mt-[-10px]">
       <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 sm:p-6">
+        {/* Custom Legend */}
+        <div className="flex flex-wrap justify-center gap-6 mb-4">
+          {data.datasets.map((dataset, index) => (
+            <div
+              key={index}
+              className="flex items-center cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => toggleDataset(index)}
+            >
+              {getLegendIcon(dataset, index)}
+              <span
+                className={`text-sm text-gray-600 ${
+                  hiddenDatasets.has(index) ? "line-through opacity-50" : ""
+                }`}
+                style={{ color: "#6B7280", fontSize: "12px" }}
+              >
+                {dataset.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
         <div className="relative h-[300px] sm:h-[400px] lg:h-[450px]">
           <canvas ref={chartRef}></canvas>
         </div>
