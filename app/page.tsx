@@ -18,7 +18,7 @@ export default function Home() {
       document.body.classList.add('home-page');
     });
 
-    router.push('/');
+    router.push('/home');
 
     return () => {
       document.body.classList.remove('home-page');
