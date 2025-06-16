@@ -1,0 +1,222 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+
+@import "tailwindcss";
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --background: #FEFAF7;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: #000000;
+    --border: #e5e7eb;
+    --scrollbar-track: #f1f1f1;
+    --scrollbar-thumb: #c1c1c1;
+    --ad-background: #f0f0f0;
+    --home-background: #ffffff;
+    --home-foreground: #000000;
+  }
+
+  .dark {
+    --background: #0f172a;
+    --foreground: #ffffff;
+    --card: #1e293b;
+    --card-foreground: #ffffff;
+    --border: #334155;
+    --scrollbar-track: #1e293b;
+    --scrollbar-thumb: #475569;
+    --ad-background: #1e293b;
+    --home-background: #000000;
+    --home-foreground: #ffffff;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body.home-page {
+  background-color: transparent;
+  color: var(--home-foreground);
+  position: relative;
+}
+
+.dark body.home-page {
+  background-color: var(--home-background);
+  color: var(--home-foreground);
+}
+
+html:not(.dark) body.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 700px;
+  background-image: url(/bg.jpg);
+  background-position: left center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.1s;
+}
+
+html:not(.dark) body.home-page::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  max-width: 700px;
+  background-image: url(/bg.jpg);
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.1s;
+}
+
+html.dark body.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 700px;
+  background-image: url(/bgDark.jpg);
+  background-position: left center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.1s;
+}
+
+html.dark body.home-page::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 700px;
+  background-image: url(/bgDark.jpg);
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+body:not(.home-page)::before,
+body:not(.home-page)::after {
+  display: none;
+}
+
+.dark body.home-page h1,
+.dark body.home-page p,
+.dark body.home-page div {
+  color: var(--home-foreground);
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+body.home-page main > div > div {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dark body.home-page main > div > div {
+  background-color: rgba(30, 41, 59, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+
+@media (max-width: 640px) {
+  html:not(.dark) body.home-page::before,
+  html.dark body.home-page::before {
+    max-width: 100vw;
+    width: 100vw;
+    left: 0;
+    background-position: center top;
+    background-size: cover;
+    opacity: 1 !important;
+  }
+  html:not(.dark) body.home-page::after,
+  html.dark body.home-page::after {
+    display: none;
+  }
+}
