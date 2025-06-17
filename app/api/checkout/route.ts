@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { auth } from '@clerk/nextjs/server';
-import { getUserByClerkId, updateUserSubscription } from '@/lib/user-service';
+import { getUserByClerkId } from '@/lib/user-service';
 import UserModel from '@/lib/models/User';
 import dbConnect from '@/lib/mongodb';
 
@@ -9,8 +9,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 const PRICE_IDS: Record<string, Record<string, string>> = {
   pro: {
-    monthly: 'price_1RLgv2RmrNO3ykSUmpNY1gNN',
-    yearly: 'price_1RLk1YRmrNO3ykSUY9RTMctD',
+    monthly: 'price_1Rat3EQgPyampC5pCsv1idC5',
+    yearly: 'price_1RatC1QgPyampC5pAqBeOrx1',
     // monthly: 'price_1RTfQYKcWZlkDKM67IauIBcE',
     // yearly: 'price_1RTfRjKcWZlkDKM6A0Hd62wm' 
   },

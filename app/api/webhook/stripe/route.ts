@@ -52,6 +52,12 @@ export async function POST(req: Request) {
             `Updating subscription for user ${userId} to plan ${planId} with billing period ${billingPeriod}`
           );
 
+          if (event.type === "checkout.session.completed") {
+            const session = event.data.object;
+            console.log("Customer ID:", session.customer);
+            console.log("Subscription ID:", session.subscription);
+          }
+
           let stripeCustomerId: string | null = null;
           if (session.customer) {
             try {

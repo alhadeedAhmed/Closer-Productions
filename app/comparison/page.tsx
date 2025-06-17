@@ -1,14 +1,16 @@
 'use client';
 
 import { useUser } from '@clerk/nextjs';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ComparisonUI from "../components/ComparisonUI";
 
 export default function ComparisonPage() {
   const { isLoaded, isSignedIn } = useUser();
   const router = useRouter();
-  
+
+  const [freeSearchCount, setFreeSearchCount] = useState(0);
+
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
       router.push('/sign-in');
@@ -25,7 +27,10 @@ export default function ComparisonPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-0 pb-4">
-      <ComparisonUI />
+      <ComparisonUI
+        freeSearchCount={freeSearchCount}
+        setFreeSearchCount={setFreeSearchCount}
+      />
     </main>
   );
-} 
+}

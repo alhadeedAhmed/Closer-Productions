@@ -213,7 +213,6 @@ const parseApiResponse = (responseJson: ApiResponse): ComparisonItem[] => {
 
 export default function ComparisonUI({
   freeSearchCount,
-  setFreeSearchCount,
 }: ComparisonUIProps) {
   const [item1, setItem1] = useState("");
   const [item2, setItem2] = useState("");

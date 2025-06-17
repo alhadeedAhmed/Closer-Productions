@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 
 export default function SearchCountDisplay() {
   const { isLoaded, isSignedIn } = useAuth();
-  const { userData, loading, resetting, error } = useUserData();
+  const { userData, loading, error } = useUserData();
 
   const [guestCount, setGuestCount] = useState(() => parseInt(Cookies.get('freeSearchCount') || '0', 10));
   const guestLimit = 3;
@@ -23,7 +23,7 @@ export default function SearchCountDisplay() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!isLoaded || loading || resetting) {
+  if (!isLoaded || loading) {
     return (
       <div className="flex items-center px-3 py-1 dark:bg-gray-800 rounded-md text-sm">
         <span className="mr-1 font-medium">Loading...</span>

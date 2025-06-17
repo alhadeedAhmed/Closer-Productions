@@ -7,7 +7,6 @@ import React, {
   useEffect,
   ReactNode,
   useCallback,
-  useRef,
 } from "react";
 import { useUser, useAuth } from "@clerk/nextjs";
 
@@ -26,7 +25,6 @@ interface UserDataContextType {
   userData: UserData | null;
   loading: boolean;
   error: string | null;
-  resetting: boolean;
   refreshUserData: () => Promise<void>;
   incrementSearchCount: () => Promise<boolean>;
 }
@@ -36,7 +34,6 @@ const UserDataContext = createContext<UserDataContextType>({
   userData: null,
   loading: true,
   error: null,
-  resetting: true,
   refreshUserData: async () => {},
   incrementSearchCount: async () => false,
 });
@@ -51,7 +48,6 @@ interface UserDataProviderProps {
 
 export function UserDataProvider({ children }: UserDataProviderProps) {
   const { user, isLoaded, isSignedIn } = useUser();
-  const [resetting, setResetting] = useState(false);
   const { signOut } = useAuth();
   const [userData, setUserData] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -276,7 +272,6 @@ export function UserDataProvider({ children }: UserDataProviderProps) {
       user?.lastName,
       user?.primaryEmailAddress?.emailAddress,
       user?.username,
-      signOut,
     ]
   );
 
@@ -537,7 +532,6 @@ export function UserDataProvider({ children }: UserDataProviderProps) {
         userData,
         loading,
         error,
-        resetting,
         refreshUserData: () => fetchUserData(true),
         incrementSearchCount,
       }}
@@ -558,12 +552,12 @@ function setCookie(name: string, value: string, days: number) {
     expires +
     "; path=/";
 }
-function getCookie(name: string) {
-  return document.cookie.split("; ").reduce((r, v) => {
-    const parts = v.split("=");
-    return parts[0] === name ? decodeURIComponent(parts[1]) : r;
-  }, "");
-}
-function deleteCookie(name: string) {
-  setCookie(name, "", -1);
-}
+// function getCookie(name: string) {
+//   return document.cookie.split("; ").reduce((r, v) => {
+//     const parts = v.split("=");
+//     return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+//   }, "");
+// }
+// function deleteCookie(name: string) {
+//   setCookie(name, "", -1);
+// }

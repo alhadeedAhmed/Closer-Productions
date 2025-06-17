@@ -1,6 +1,6 @@
 'use client';
 
-import { SignIn , SignUp} from '@clerk/nextjs';
+import {SignUp} from '@clerk/nextjs';
 import { useSearchParams } from 'next/navigation';
 
 export default function SignUpPage() {

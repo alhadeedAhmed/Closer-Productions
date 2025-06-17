@@ -65,12 +65,10 @@ export async function POST(request: Request) {
       { message: "Email sent successfully" },
       { status: 200 }
     );
-  } catch (error: any) {
-    console.error("Error sending email:", error, error?.response);
+  } catch (error) {
+    console.error('Error sending email:', error);
     return NextResponse.json(
-      {
-        error: error.message || "Failed to send email. Please try again later.",
-      },
+      { error: 'Failed to send email. Please try again later.' },
       { status: 500 }
     );
   }

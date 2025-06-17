@@ -2,13 +2,11 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import ComparisonUI from "../components/ComparisonUI";
 import Cookies from 'js-cookie';
 
 export default function HomePage() {
   const { isLoaded, isSignedIn } = useUser();
-  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [freeSearchCount, setFreeSearchCount] = useState(0);
 
