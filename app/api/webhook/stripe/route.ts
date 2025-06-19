@@ -304,32 +304,44 @@ export async function POST(req: Request) {
 
       case "customer.subscription.deleted": {
         const subscription = event.data.object as Stripe.Subscription;
-        const userId = subscription.metadata?.userId;
+        const stripeCustomerId = subscription.customer as string;
 
-        if (!userId) {
+        if (!stripeCustomerId) {
           console.error(
-            "Missing userId in subscription metadata:",
-            subscription.metadata
+            "Missing Stripe customer ID in subscription:",
+            subscription
           );
           break;
         }
 
-        console.log(
-          `Reverting user ${userId} to free plan due to subscription cancellation`
-        );
-
         try {
-          const updatedUser = await updateUserSubscription(userId, "free");
+          await dbConnect();
+
+          const user = await UserModel.findOne({ stripeCustomerId });
+
+          if (!user) {
+            console.error(
+              `No user found for Stripe customer ${stripeCustomerId}`
+            );
+            break;
+          }
+
+          const updatedUser = await updateUserSubscription(
+            user.clerkId,
+            "free"
+          );
           if (!updatedUser) {
             console.error(
-              `User with clerkId ${userId} not found. Failed to revert to free plan.`
+              `User with clerkId ${user.clerkId} not found. Failed to revert to free plan.`
             );
           } else {
-            console.log(`Successfully reverted user ${userId} to free plan`);
+            console.log(
+              `Successfully reverted user ${user.clerkId} to free plan`
+            );
           }
         } catch (err) {
           console.error(
-            `Error reverting subscription for user ${userId}:`,
+            `Error reverting subscription for customer ${stripeCustomerId}:`,
             err
           );
         }

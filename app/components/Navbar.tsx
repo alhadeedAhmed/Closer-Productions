@@ -336,7 +336,7 @@ export default function Navbar() {
                       pointerEvents: "none",
                     }}
                   >
-                    Advertisement
+                    {/* Advertisement */}
                   </span>
                   <ProfitablerateAdNavbar />
                 </div>

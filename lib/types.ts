@@ -10,7 +10,7 @@ export interface User {
   searchCount: number;
   searchLimit: number;
   subscriptionStatus: 'free' | 'pro' | 'business';
-  subscriptionPeriod?: 'monthly' | 'yearly'; // Track billing period
+  subscriptionPeriod?: 'monthly' | 'yearly' | null; // Track billing period
   createdAt: Date;
   updatedAt: Date;
 }

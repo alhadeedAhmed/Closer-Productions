@@ -211,9 +211,7 @@ const parseApiResponse = (responseJson: ApiResponse): ComparisonItem[] => {
   return items;
 };
 
-export default function ComparisonUI({
-  freeSearchCount,
-}: ComparisonUIProps) {
+export default function ComparisonUI({ freeSearchCount }: ComparisonUIProps) {
   const [item1, setItem1] = useState("");
   const [item2, setItem2] = useState("");
   const [item3, setItem3] = useState("");
@@ -369,18 +367,7 @@ export default function ComparisonUI({
     if (!shouldShowAds) return null;
     // Card for bottom ad: 728x90
     return (
-      <div
-        className="mx-auto mb-6 mt-8 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-800 flex items-center justify-center"
-        style={{
-          width: 728,
-          height: 90,
-          minWidth: 728,
-          minHeight: 90,
-          maxWidth: 728,
-          maxHeight: 90,
-          padding: 0,
-        }}
-      >
+      <div className="mx-auto mb-6 mt-8 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-800 flex items-center justify-center w-full sm:w-[728px] h-[90px] px-0 sm:px-0">
         <ProfitablerateAdBottom />
       </div>
     );
@@ -390,7 +377,7 @@ export default function ComparisonUI({
 
   return (
     <div
-      className={`w-full max-w-8xl mx-auto pt-0 px-0 sm:px-6 pb-10 sm:pb-8 overflow-hidden ${
+      className={`w-full max-w-8xl mx-auto pt-0 px-0 sm:px-6 pb-10 sm:pb-8  ${
         results.length === 0 && !loading ? "overflow-hidden" : ""
       }`}
     >
@@ -640,7 +627,7 @@ export default function ComparisonUI({
             )}
           </div>
 
-          <div className="flex justify-center mb-8 md:mb-4 mt-6 md:mt-0 sticky top-20 z-20">
+          <div className="flex justify-center mb-8 md:mb-4 mt-6 md:mt-0 top-20 z-20">
             <button
               onClick={() => setShowThirdInput(!showThirdInput)}
               className="px-5 py-3 md:px-4 md:py-2 text-[#7651DB] border border-[#7651DB] rounded-full text-base md:text-sm font-medium transition duration-200 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-[#7651DB] focus:ring-opacity-50 mb-4"
@@ -912,7 +899,7 @@ export default function ComparisonUI({
 
               {/* Add social buttons at the end of results */}
               {results.length > 0 && (
-                <SocialIcons className="flex justify-center space-x-4 xl:sticky xl:top-24 xl:z-30" />
+                <SocialIcons className="fixed bottom-15 left-0 right-0 flex justify-center space-x-4 z-50" />
               )}
             </div>
           )}
@@ -920,7 +907,7 @@ export default function ComparisonUI({
           {/* Add social buttons on the home/input page as well */}
           {results.length === 0 && !loading && (
             <div className="mt-8">
-              <SocialIcons className="flex justify-center space-x-4 xl:sticky xl:top-24 xl:z-30" />
+              <SocialIcons className="fixed bottom-11 left-0 right-0 flex justify-center space-x-4 z-50" />
             </div>
           )}
         </div>

@@ -8,50 +8,49 @@ const counter = getCounter();
 
 export default function ProfitablerateAdLeft() {
   const [toShow, setToShow] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const bannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const index = counter();
-    const timeout = index * 5500; // 0ms for first, 1500ms for second, etc.
+    const timeout = index * 5500;
     const timer = setTimeout(() => {
       setToShow(true);
       clearTimeout(timer);
     }, timeout);
   }, []);
 
-  useEffect(() => {
-    if (!toShow) {
-      return;
-    }
-    const atOptions = {
-      key: 'ee66052545634fdbb24c1ca5e17e4fbf',
-      format: 'iframe',
-      height: 300,
-      width: 160,
-      params: {},
-    };
-    if (bannerRef.current && !bannerRef.current.firstChild) {
-      const confScript = document.createElement('script');
-      const adScript = document.createElement('script');
-      adScript.type = 'text/javascript';
-      adScript.src = `//www.highperformanceformat.com/${atOptions.key}/invoke.js`;
-      confScript.innerHTML = `atOptions = ${JSON.stringify(atOptions)}`;
-      bannerRef.current.appendChild(confScript);
-      bannerRef.current.appendChild(adScript);
-      // Fallback: show placeholder if ad doesn't load in 8s
-      setTimeout(() => {
-        if (bannerRef.current && bannerRef.current.childElementCount === 2) {
-          bannerRef.current.innerHTML = '<span style="color: #aaa; font-weight: 600; font-size: 16px; z-index: 1; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">Advertisement</span>';
-        }
-      }, 8000);
-    }
-  }, [toShow]);
-
   return (
     <div
-      className="mx-2 my-5 border border-gray-200 justify-center items-center text-white text-center"
+     className="mx-2 my-5 border border-gray-200 justify-center items-center text-white text-center"
       style={{ width: 160, height: 300, background: '#f5f5f5', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       ref={bannerRef}
-    />
+    >
+       {toShow ? (
+        hasError ? (
+          <span style={{ color: '#aaa', fontWeight: 600, fontSize: 14 }}>
+            Advertisement
+          </span>
+        ) : (
+          <a
+            href="https://www.dpbolvw.net/click-101465718-15520679"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'inline-block', width: '100%', height: '100%' }}
+          >
+            <img
+              src="https://www.lduhtrp.net/image-101465718-15520679"
+              alt="Advertisement"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              onError={() => setHasError(true)}
+            />
+          </a>
+        )
+      ) : (
+        <span style={{ color: '#aaa', fontWeight: 600, fontSize: 14 }}>
+          Advertisement
+        </span>
+      )}
+    </div>
   );
 }

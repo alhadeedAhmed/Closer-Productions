@@ -508,7 +508,7 @@ function PricingContent() {
       </div> 
 
       <div className="mt-16">
-        <SocialIcons />
+        <SocialIcons className="fixed bottom-6 left-0 right-0 flex justify-center space-x-4 z-50" />
       </div>
     </div>
   );
