@@ -29,60 +29,6 @@ async function createStripeCustomer(
   }
 }
 
-// export async function resetSearchCount(clerkId: string) {
-//   console.log(`=== RESET SEARCH COUNT CALLED ===`);
-//   console.log(`ClerkId: ${clerkId}`);
-  
-//   try {
-//     await dbConnect();
-//     console.log("Database connection established for reset");
-
-//     // First, check if user exists and get current state
-//     const existingUser = await UserModel.findOne({ clerkId });
-//     console.log("Current user state:", existingUser ? {
-//       clerkId: existingUser.clerkId,
-//       searchCount: existingUser.searchCount,
-//       searchLimit: existingUser.searchLimit,
-//       subscriptionStatus: existingUser.subscriptionStatus
-//     } : "User not found");
-
-//     if (!existingUser) {
-//       console.error(`[resetSearchCount] No user found with clerkId: ${clerkId}`);
-//       return null;
-//     }
-
-//     // Perform the reset
-//     const updatedUser = await UserModel.findOneAndUpdate(
-//       { clerkId },
-//       { 
-//         $set: { 
-//           searchCount: 0,
-//           updatedAt: new Date()
-//         } 
-//       },
-//       { new: true } // return updated user
-//     );
-
-//     if (!updatedUser) {
-//       console.error(`[resetSearchCount] Failed to update user with clerkId: ${clerkId}`);
-//       return null;
-//     }
-
-//     console.log(`[resetSearchCount] SUCCESS - Updated user:`, {
-//       clerkId: updatedUser.clerkId,
-//       searchCount: updatedUser.searchCount,
-//       searchLimit: updatedUser.searchLimit,
-//       subscriptionStatus: updatedUser.subscriptionStatus
-//     });
-
-//     return updatedUser;
-    
-//   } catch (error) {
-//     console.error(`[resetSearchCount] Database error:`, error);
-//     throw error;
-//   }
-// }
-
 export async function createOrUpdateUser(
   userData: Partial<User>
 ): Promise<User> {
